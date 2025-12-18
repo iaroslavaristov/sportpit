@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вишлист - SportFuel</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="catalog.css">
+    <link rel="stylesheet" href="wishlist.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-dumbbell"></i>
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <span>SportFuel</span>
+                </a>
+            </div>
+            
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Главная</a></li>
+                    <li><a href="#" class="nav-link"><i class="fas fa-user"></i> Профиль</a></li>
+                    <li><a href="catalog.html" class="nav-link"><i class="fas fa-store"></i> Каталог</a></li>
+                    <li><a href="wishlist.html" class="nav-link active"><i class="fas fa-heart"></i> Вишлист</a></li>
+                </ul>
+            </nav>
+            
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Заголовок вишлиста -->
+    <section class="wishlist-header">
+        <div class="container">
+            <h1><i class="fas fa-heart"></i> Мой вишлист</h1>
+            <p class="wishlist-subtitle">Товары, которые вы отложили для покупки</p>
+            <div class="wishlist-stats">
+                <div class="stat-item">
+                    <span class="stat-number" id="wishlist-count">0</span>
+                    <span class="stat-label">товаров</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="total-price">0 ₽</span>
+                    <span class="stat-label">общая стоимость</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="average-price">0 ₽</span>
+                    <span class="stat-label">средняя цена</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Основной контент вишлиста -->
+    <section class="wishlist-content">
+        <div class="container">
+            <!-- Сообщение, если вишлист пуст -->
+            <div class="empty-wishlist" id="empty-wishlist">
+                <div class="empty-icon">
+                    <i class="far fa-heart"></i>
+                </div>
+                <h2>Ваш вишлист пуст</h2>
+                <p>Добавляйте товары в вишлист, нажимая на сердечко в каталоге</p>
+                <a href="catalog.html" class="btn">Перейти в каталог</a>
+            </div>
+
+            <!-- Список товаров в вишлисте -->
+            <div class="wishlist-items-container" id="wishlist-items-container">
+                <div class="wishlist-controls">
+                    <div class="wishlist-actions">
+                        <button class="btn-secondary" id="clear-wishlist">
+                            <i class="fas fa-trash"></i> Очистить вишлист
+                        </button>
+                        <button class="btn-secondary" id="add-all-to-cart">
+                            <i class="fas fa-shopping-cart"></i> Добавить все в корзину
+                        </button>
+                    </div>
+                    <div class="wishlist-filters">
+                        <select id="sort-wishlist" class="sort-select">
+                            <option value="date">Сначала новые</option>
+                            <option value="date-old">Сначала старые</option>
+                            <option value="price-low">Сначала дешевые</option>
+                            <option value="price-high">Сначала дорогие</option>
+                            <option value="name">По названию (А-Я)</option>
+                            <option value="name-reverse">По названию (Я-А)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Товары будут добавляться сюда динамически -->
+                <div class="wishlist-grid" id="wishlist-grid">
+                    <!-- Пример товара (будет удален после загрузки скрипта) -->
+                    <div class="wishlist-item" data-id="example">
+                        <div class="wishlist-item-img">
+                            <img src="https://m.media-amazon.com/images/I/71C2qPA+JQL._AC_SL1500_.jpg" alt="Товар">
+                        </div>
+                        <div class="wishlist-item-info">
+                            <span class="wishlist-item-brand">Optimum Nutrition</span>
+                            <h3 class="wishlist-item-title">Gold Standard 100% Whey</h3>
+                            <p class="wishlist-item-description">Сывороточный протеин с быстрым усвоением</p>
+                            <div class="wishlist-item-details">
+                                <span class="weight">2.27 кг</span>
+                                <span class="flavor">Шоколад</span>
+                            </div>
+                        </div>
+                        <div class="wishlist-item-actions">
+                            <div class="wishlist-item-price">4 299 ₽</div>
+                            <div class="wishlist-item-buttons">
+                                <button class="btn-remove" title="Удалить из вишлиста">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                                <button class="btn-move-to-cart" title="Добавить в корзину">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                                <a href="catalog.html" class="btn-view" title="Посмотреть в каталоге">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Итоговая сумма -->
+                <div class="wishlist-summary" id="wishlist-summary">
+                    <div class="summary-content">
+                        <h3>Итоговая информация</h3>
+                        <div class="summary-details">
+                            <div class="summary-row">
+                                <span>Количество товаров:</span>
+                                <span id="summary-count">0</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Общая стоимость:</span>
+                                <span id="summary-total">0 ₽</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Средняя цена:</span>
+                                <span id="summary-average">0 ₽</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-buy-all" id="buy-all">
+                            <i class="fas fa-credit-card"></i> Купить все
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Рекомендуемые товары -->
+    <section class="recommended" id="recommended-section">
+        <div class="container">
+            <h2>Вам также может понравиться</h2>
+            <div class="recommended-grid" id="recommended-grid">
+                <!-- Рекомендации будут загружаться динамически -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал сайта -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>SportFuel</h3>
+                    <p>Мы предоставляем лучшее спортивное питание для достижения ваших спортивных целей.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <ul class="contact-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>г. Москва, ул. Спортивная, д. 15</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+7 (999) 123-45-67</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@sportfuel.ru</span>
+                        </li>
+                        <li>
+                            <i class="fab fa-telegram"></i>
+                            <span>@sportfuel_support</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Часы работы</h4>
+                    <ul class="hours-list">
+                        <li><span>Пн-Пт:</span> 9:00 - 21:00</li>
+                        <li><span>Сб-Вс:</span> 10:00 - 20:00</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Быстрые ссылки</h4>
+                    <ul class="quick-links">
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="catalog.html">Каталог</a></li>
+                        <li><a href="wishlist.html">Вишлист</a></li>
+                        <li><a href="#">Доставка</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span class="current-year">2023</span> SportFuel. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="wishlist.js"></script>
+<!-- Модальное окно оформления заказа -->
+<div class="modal-overlay" id="order-modal">
+    <div class="order-modal">
+        <div class="modal-header">
+            <h3><i class="fas fa-shopping-bag"></i> Оформление заказа</h3>
+            <button class="modal-close" id="modal-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="modal-body">
+            <!-- Содержимое формы -->
+            <div class="order-summary">
+                <h4><i class="fas fa-receipt"></i> Сводка заказа</h4>
+                <div class="order-summary-item">
+                    <span>Количество товаров:</span>
+                    <span id="modal-item-count">0</span>
+                </div>
+                <div class="order-summary-item">
+                    <span>Общая стоимость:</span>
+                    <span id="modal-total-price">0 ₽</span>
+                </div>
+                <div class="order-summary-item total">
+                    <span>К оплате:</span>
+                    <span id="modal-payment-amount">0 ₽</span>
+                </div>
+            </div>
+            
+            <form id="order-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="first-name" class="required">Имя</label>
+                        <input type="text" id="first-name" class="form-control" placeholder="Введите ваше имя" required>
+                        <div class="error-message" id="first-name-error">Пожалуйста, введите ваше имя</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="last-name" class="required">Фамилия</label>
+                        <input type="text" id="last-name" class="form-control" placeholder="Введите вашу фамилию" required>
+                        <div class="error-message" id="last-name-error">Пожалуйста, введите вашу фамилию</div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone" class="required">Телефон</label>
+                    <input type="tel" id="phone" class="form-control" placeholder="+7 (999) 123-45-67" required>
+                    <div class="error-message" id="phone-error">Пожалуйста, введите корректный номер телефона</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email" class="required">Email</label>
+                    <input type="email" id="email" class="form-control" placeholder="ваш@email.com" required>
+                    <div class="error-message" id="email-error">Пожалуйста, введите корректный email адрес</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="address">Адрес доставки</label>
+                    <input type="text" id="address" class="form-control" placeholder="Введите адрес доставки">
+                </div>
+                
+                <div class="form-group">
+                    <label for="comment">Комментарий к заказу</label>
+                    <textarea id="comment" class="form-control" rows="3" placeholder="Дополнительные пожелания..."></textarea>
+                </div>
+                
+                <div class="form-checkbox">
+                    <input type="checkbox" id="privacy-policy" required>
+                    <label for="privacy-policy">
+                        Я соглашаюсь с <a href="#" target="_blank">политикой конфиденциальности</a> и 
+                        <a href="#" target="_blank">условиями обработки данных</a>
+                    </label>
+                </div>
+            </form>
+            
+            <!-- Сообщение об успешном заказе -->
+            <div class="order-success" id="order-success">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h4>Заказ успешно оформлен!</h4>
+                <p>Спасибо за ваш заказ. Мы свяжемся с вами в ближайшее время для подтверждения.</p>
+                <div class="order-number" id="order-number">Заказ №SF-2024-001</div>
+                <button class="btn btn-secondary" id="continue-shopping">
+                    <i class="fas fa-shopping-bag"></i> Продолжить покупки
+                </button>
+            </div>
+        </div>
+        
+        <div class="modal-footer">
+            <button type="button" class="btn-cancel" id="cancel-order">Отмена</button>
+            <button type="submit" class="btn-submit" id="submit-order" form="order-form">
+                <i class="fas fa-paper-plane"></i> Подтвердить заказ
+            </button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

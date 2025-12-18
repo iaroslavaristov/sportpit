@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог - SportFuel</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="catalog.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-dumbbell"></i>
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <span>SportFuel</span>
+                </a>
+            </div>
+            
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Главная</a></li>
+                    <li><a href="#" class="nav-link"><i class="fas fa-user"></i> Профиль</a></li>
+                    <li><a href="catalog.html" class="nav-link active"><i class="fas fa-store"></i> Каталог</a></li>
+                    <li><a href="wishlist.html" class="nav-link"><i class="fas fa-heart"></i> Вишлист</a></li>
+                </ul>
+            </nav>
+            
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Фильтры категорий -->
+    <section class="category-filters">
+        <div class="container">
+            <h1>Каталог товаров</h1>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-category="all">Все товары</button>
+                <button class="filter-btn" data-category="protein">Протеин</button>
+                <button class="filter-btn" data-category="energy">Энергетики</button>
+                <button class="filter-btn" data-category="vitamins">Витамины</button>
+                <button class="filter-btn" data-category="fatburner">Жиросжигатели</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Каталог товаров -->
+    <section class="catalog">
+        <div class="container">
+            <div class="products-container">
+                <!-- Протеин -->
+                <div class="category-section active" id="protein">
+                    <h2 class="category-title">Протеин</h2>
+                    <div class="products-grid">
+                        <!-- Optimum Nutrition -->
+                        <div class="product-card" data-brand="optimum" data-category="protein">
+                            <div class="product-img">
+                                <img src="https://m.media-amazon.com/images/I/71C2qPA+JQL._AC_SL1500_.jpg" alt="Optimum Nutrition Gold Standard Whey" loading="lazy">
+                            </div>
+                            <div class="product-info">
+                                <span class="brand">Optimum Nutrition</span>
+                                <h3>Gold Standard 100% Whey</h3>
+                                <p class="product-description">Сывороточный протеин с быстрым усвоением, 24г белка на порцию</p>
+                                <div class="product-details">
+                                    <span class="weight">2.27 кг</span>
+                                    <span class="flavor">Шоколад</span>
+                                </div>
+                                <div class="product-footer">
+                                    <span class="price">4 299 ₽</span>
+                                    <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Dymatize -->
+                        <div class="product-card" data-brand="dymatize" data-category="protein">
+                            <div class="product-img">
+                                <img src="https://m.media-amazon.com/images/I/71aBX+gvljL._AC_SL1500_.jpg" alt="Dymatize ISO100" loading="lazy">
+                            </div>
+                            <div class="product-info">
+                                <span class="brand">Dymatize</span>
+                                <h3>ISO100 Hydrolyzed</h3>
+                                <p class="product-description">Гидролизат сывороточного протеина, 25г белка, 0г жира</p>
+                                <div class="product-details">
+                                    <span class="weight">1.8 кг</span>
+                                    <span class="flavor">Ваниль</span>
+                                </div>
+                                <div class="product-footer">
+                                    <span class="price">5 199 ₽</span>
+                                    <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- BSN -->
+                        <div class="product-card" data-brand="bsn" data-category="protein">
+                            <div class="product-img">
+                                <img src="https://m.media-amazon.com/images/I/71L60+mrTXL._AC_SL1500_.jpg" alt="BSN Syntha-6" loading="lazy">
+                            </div>
+                            <div class="product-info">
+                                <span class="brand">BSN</span>
+                                <h3>Syntha-6 Protein Powder</h3>
+                                <p class="product-description">Мультикомпонентный протеин с 6 источниками белка</p>
+                                <div class="product-details">
+                                    <span class="weight">2.27 кг</span>
+                                    <span class="flavor">Печенье и сливки</span>
+                                </div>
+                                <div class="product-footer">
+                                    <span class="price">3 999 ₽</span>
+                                    <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- MyProtein -->
+                        <div class="product-card" data-brand="myprotein" data-category="protein">
+                            <div class="product-img">
+                                <img src="https://m.media-amazon.com/images/I/71lDiySOMoL._AC_SL1500_.jpg" alt="MyProtein Impact Whey" loading="lazy">
+                            </div>
+                            <div class="product-info">
+                                <span class="brand">MyProtein</span>
+                                <h3>Impact Whey Protein</h3>
+                                <p class="product-description">Концентрат сывороточного протеина, 21г белка на порцию</p>
+                                <div class="product-details">
+                                    <span class="weight">2.5 кг</span>
+                                    <span class="flavor">Клубника</span>
+                                </div>
+                                <div class="product-footer">
+                                    <span class="price">3 599 ₽</span>
+                                    <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- MuscleTech -->
+                        <div class="product-card" data-brand="muscletech" data-category="protein">
+                            <div class="product-img">
+                                <img src="https://m.media-amazon.com/images/I/71inbYSIqYL._AC_SL1500_.jpg" alt="MuscleTech Nitro-Tech" loading="lazy">
+                            </div>
+                            <div class="product-info">
+                                <span class="brand">MuscleTech</span>
+                                <h3>Nitro-Tech Whey Gold</h3>
+                                <p class="product-description">Сывороточный протеин с креатином, 30г белка</p>
+                                <div class="product-details">
+                                    <span class="weight">1.8 кг</span>
+                                    <span class="flavor">Молочный шоколад</span>
+                                </div>
+                                <div class="product-footer">
+                                    <span class="price">4 899 ₽</span>
+                                    <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Rule 1 -->
+                        <div class="product-card" data-brand="rule1" data-category="protein">
+                            <div class="product-img">
+                                <img src="https://m.media-amazon.com/images/I/61FS5LXdK4L._AC_SL1500_.jpg" alt="Rule 1 Protein" loading="lazy">
+                            </div>
+                            <div class="product-info">
+                                <span class="brand">Rule 1</span>
+                                <h3>R1 Protein Blend</h3>
+                                <p class="product-description">Смесь сывороточного и казеинового протеина</p>
+                                <div class="product-details">
+                                    <span class="weight">2.04 кг</span>
+                                    <span class="flavor">Ванильный крем</span>
+                                </div>
+                                <div class="product-footer">
+                                    <span class="price">4 199 ₽</span>
+                                    <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Энергетики -->
+                <div class="category-section hidden" id="energy">
+                    <h2 class="category-title">Энергетики</h2>
+                    <div class="products-grid">
+                        <!-- C4 -->
+                        <div class="product-card" data-brand="cellucor" data-category="energy">
+                            <div class="product-img">
+                                <img src="https://m.media-amazon.com/images/I/71HeLEoGdJL._AC_SL1500_.jpg" alt="Cellucor C4 Pre-Workout" loading="lazy">
+                            </div>
+                            <div class="product-info">
+                                <span class="brand">Cellucor</span>
+                                <h3>C4 Original Pre-Workout</h3>
+                                <p class="product-description">Предтренировочный комплекс с бета-аланином и креатином</p>
+                                <div class="product-details">
+                                    <span class="weight">420 г</span>
+                                    <span class="flavor">Арбуз</span>
+                                </div>
+                                <div class="product-footer">
+                                    <span class="price">2 499 ₽</span>
+                                    <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Ghost -->
+                        <div class="product-card" data-brand="ghost" data-category="energy">
+                            <div class="product-img">
+                                <img src="https://m.media-amazon.com/images/I/71IXr+Y07SL._AC_SL1500_.jpg" alt="Ghost Legend Pre-Workout" loading="lazy">
+                            </div>
+                            <div class="product-info">
+                                <span class="brand">Ghost</span>
+                                <h3>Legend Pre-Workout</h3>
+                                <p class="product-description">Предтренировочный комплекс с натуральными ингредиентами</p>
+                                <div class="product-details">
+                                    <span class="weight">400 г</span>
+                                    <span class="flavor">Тропический микс</span>
+                                </div>
+                                <div class="product-footer">
+                                    <span class="price">2 999 ₽</span>
+                                    <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Nitro Tech -->
+                        <div class="product-card" data-brand="muscletech" data-category="energy">
+                            <div class="product-img">
+                                <img src="https://m.media-amazon.com/images/I/81ElNRJ-LCL._AC_SL1500_.jpg" alt="MuscleTech Pre-Workout" loading="lazy">
+                            </div>
+                            <div class="product-info">
+                                <span class="brand">MuscleTech</span>
+                                <h3>Platinum PRE</h3>
+                                <p class="product-description">Мощный предтренировочный комплекс для энергии</p>
+                                <div class="product-details">
+                                    <span class="weight">400 г</span>
+                                    <span class="flavor">Ягодный лимонад</span>
+                                </div>
+                                <div class="product-footer">
+                                    <span class="price">2 799 ₽</span>
+                                    <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Ryse -->
+                        <div class="product-card" data-brand="ryse" data-category="energy">
+                            <div class="product-img">
+                                <img src="https://m.media-amazon.com/images/I/61UvP8MsbAL._AC_SL1500_.jpg" alt="Ryse Loaded Pre-Workout" loading="lazy">
+                            </div>
+                            <div class="product-info">
+                                <span class="brand">Ryse</span>
+                                <h3>Loaded Pre-Workout</h3>
+                                <p class="product-description">Предтренировочный комплекс с электролитами</p>
+                                <div class="product-details">
+                                    <span class="weight">420 г</span>
+                                    <span class="flavor">Голубая малина</span>
+                                </div>
+                                <div class="product-footer">
+                                    <span class="price">2 899 ₽</span>
+                                    <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Bucked Up -->
+                        <div class="product-card" data-brand="buckedup" data-category="energy">
+                            <div class="product-img">
+                                <img src="https://m.media-amazon.com/images/I/71c8HjI3FAL._AC_SL1500_.jpg" alt="Bucked Up Pre-Workout" loading="lazy">
+                            </div>
+                            <div class="product-info">
+                                <span class="brand">Bucked Up</span>
+                                <h3>Bucked Up Pre-Workout</h3>
+                                <p class="product-description">Энергетический комплекс с натуральными стимуляторами</p>
+                                <div class="product-details">
+                                    <span class="weight">400 г</span>
+                                    <span class="flavor">Апельсиновый манго</span>
+                                </div>
+                                <div class="product-footer">
+                                    <span class="price">3 199 ₽</span>
+                                    <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Pre JYM -->
+                        <div class="product-card" data-brand="jym" data-category="energy">
+                            <div class="product-img">
+                                <img src="https://m.media-amazon.com/images/I/71Kk2LzRjYL._AC_SL1500_.jpg" alt="Pre JYM Pre-Workout" loading="lazy">
+                            </div>
+                            <div class="product-info">
+                                <span class="brand">JYM Supplement Science</span>
+                                <h3>Pre JYM</h3>
+                                <p class="product-description">Полноценный предтренировочный комплекс</p>
+                                <div class="product-details">
+                                    <span class="weight">450 г</span>
+                                    <span class="flavor">Кислый леденец</span>
+                                </div>
+                                <div class="product-footer">
+                                    <span class="price">3 499 ₽</span>
+                                    <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Витамины -->
+                <div class="category-section hidden" id="vitamins">
+                    <h2 class="category-title">Витамины</h2>
+                    <div class="products-grid">
+                        <!-- Optimum Nutrition -->
+                        <div class="product-card" data-brand="optimum" data-category="vitamins">
+                            <div class="product-img">
+                                <img src="https://m.media-amazon.com/images/I/71j8f2k3CpL._AC_SL1500_.jpg" alt="Optimum Nutrition Opti-Men" loading="lazy">
+                            </div>
+                            <div class="product-info">
+                                <span class="brand">Optimum Nutrition</span>
+                                <h3>Opti-Men Multivitamin</h3>
+                                <p class="product-description">Мультивитамины для мужчин, 75+ ингредиентов</p>
+                                <div class="product-details">
+                                    <span class="weight">180 таблеток</span>
+                                    <span class="flavor">-</span>
+                                </div>
+                                <div class="product-footer">
+                                    <span class="price">1 899 ₽</span>
+                                    <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Animal Pak -->
+                        <div class="product-card" data-brand="animal" data-category="vitamins">
+                            <div class="product-img">
+                                <img src="https://m.media-amazon.com/images/I/81N4UeH3A7L._AC_SL1500_.jpg" alt="Universal Animal Pak" loading="lazy">
+                            </div>
+                            <div class="product-info">
+                                <span class="brand">Universal Nutrition</span>
+                                <h3>Animal Pak Multivitamin</h3>
+                                <p class="product-description">Комплекс витаминов и аминокислот для спортсменов</p>
+                                <div class="product-details">
+                                    <span class="weight">44 пакета</span>
+                                    <span class="flavor">-</span>
+                                </div>
+                                <div class="product-footer">
+                                    <span class="price">2 499 ₽</span>
+                                    <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- MuscleTech -->
+                        <div class="product-card" data-brand="muscletech" data-category="vitamins">
+                            <div class="product-img">
+                                <img src="https://m.media-amazon.com/images/I/81I5KTHMR+L._AC_SL1500_.jpg" alt="MuscleTech Platinum Multivitamin" loading="lazy">
+                            </div>
+                            <div class="product-info">
+                                <span class="brand">MuscleTech</span>
+                                <h3>Platinum Multivitamin</h3>
+                                <p class="product-description">Премиум мультивитамины с антиоксидантами</p>
+                                <div class="product-details">
+                                    <span class="weight">100 таблеток</span>
+                                    <span class="flavor">-</span>
+                                </div>
+                                <div class="product-footer">
+                                    <span class="price">1 599 ₽</span>
+                                    <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- NOW Foods -->
+                        <div class="product-card" data-brand="now" data-category="vitamins">
+                            <div class="product-img">
+                                <img src="https://m.media-amazon.com/images/I/81NED7c1nuL._AC_SL1500_.jpg" alt="NOW Foods ADAM Men's Multivitamin" loading="lazy">
+                            </div>
+                            <div class="product-info">
+                                <span class="brand">NOW Foods</span>
+                                <h3>ADAM Men's Multivitamin</h3>
+                                <p class="product-description">Мультивитамины для мужчин с цинком и селеном</p>
+                                <div class="product-details">
+                                    <span class="weight">180 капсул</span>
+                                    <span class="flavor">-</span>
+                                </div>
+                                <div class="product-footer">
+                                    <span class="price">1 799 ₽</span>
+                                    <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Garden of Life -->
+                        <div class="product-card" data-brand="gardenoflife" data-category="vitamins">
+                            <div class="product-img">
+                                <img src="https://m.media-amazon.com/images/I/81ADoSt1VwL._AC_SL1500_.jpg" alt="Garden of Life Vitamin Code" loading="lazy">
+                            </div>
+                            <div class="product-info">
+                                <span class="brand">Garden of Life</span>
+                                <h3>Vitamin Code Men</h3>
+                                <p class="product-description">Сырые цельные пищевые мультивитамины</p>
+                                <div class="product-details">
+                                    <span class="weight">120 капсул</span>
+                                    <span class="flavor">-</span>
+                                </div>
+                                <div class="product-footer">
+                                    <span class="price">2 299 ₽</span>
+                                    <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- One A Day -->
+                        <div class="product-card" data-brand="oneaday" data-category="vitamins">
+                            <div class="product-img">
+                                <img src="https://m.media-amazon.com/images/I/91dWr9M0a+L._AC_SL1500_.jpg" alt="One A Day Men's Health Formula" loading="lazy">
+                            </div>
+                            <div class="product-info">
+                                <span class="brand">One A Day</span>
+                                <h3>Men's Health Formula</h3>
+                                <p class="product-description">Комплекс витаминов для поддержания мужского здоровья</p>
+                                <div class="product-details">
+                                    <span class="weight">100 таблеток</span>
+                                    <span class="flavor">-</span>
+                                </div>
+                                <div class="product-footer">
+                                    <span class="price">999 ₽</span>
+                                    <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Жиросжигатели -->
+                <div class="category-section hidden" id="fatburner">
+                    <h2 class="category-title">Жиросжигатели</h2>
+                    <div class="products-grid">
+                        <!-- Hydroxycut -->
+                        <div class="product-card" data-brand="muscletech" data-category="fatburner">
+                            <div class="product-img">
+                                <img src="https://m.media-amazon.com/images/I/61Qqff5Y1yL._AC_SL1500_.jpg" alt="MuscleTech Hydroxycut" loading="lazy">
+                            </div>
+                            <div class="product-info">
+                                <span class="brand">MuscleTech</span>
+                                <h3>Hydroxycut Hardcore Elite</h3>
+                                <p class="product-description">Термогенный жиросжигатель с кофеином</p>
+                                <div class="product-details">
+                                    <span class="weight">180 капсул</span>
+                                    <span class="flavor">-</span>
+                                </div>
+                                <div class="product-footer">
+                                    <span class="price">2 299 ₽</span>
+                                    <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Lipo 6 Black -->
+                        <div class="product-card" data-brand="nutrex" data-category="fatburner">
+                            <div class="product-img">
+                                <img src="https://m.media-amazon.com/images/I/71GdM8YHXgL._AC_SL1500_.jpg" alt="Nutrex Lipo 6 Black" loading="lazy">
+                            </div>
+                            <div class="product-info">
+                                <span class="brand">Nutrex</span>
+                                <h3>Lipo 6 Black Ultra Concentrate</h3>
+                                <p class="product-description">Мощный жиросжигатель с технологией сжигания жира</p>
+                                <div class="product-details">
+                                    <span class="weight">120 капсул</span>
+                                    <span class="flavor">-</span>
+                                </div>
+                                <div class="product-footer">
+                                    <span class="price">2 499 ₽</span>
+                                    <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- EVL -->
+                        <div class="product-card" data-brand="evl" data-category="fatburner">
+                            <div class="product-img">
+                                <img src="image/EVLution Nutrition.jpg" alt="EVL Lean Mode" loading="lazy">
+                            </div>
+                            <div class="product-info">
+                                <span class="brand">EVLution Nutrition</span>
+                                <h3>Lean Mode Thermogenic</h3>
+                                <p class="product-description">Термогенный жиросжигатель для повышения метаболизма</p>
+                                <div class="product-details">
+                                    <span class="weight">120 капсул</span>
+                                    <span class="flavor">-</span>
+                                </div>
+                                <div class="product-footer">
+                                    <span class="price">1 999 ₽</span>
+                                    <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Black Mamba -->
+                        <div class="product-card" data-brand="innovapharm" data-category="fatburner">
+                            <div class="product-img">
+                                <img src="https://m.media-amazon.com/images/I/71MEnUQFe6L._AC_SL1500_.jpg" alt="Innovapharm Black Mamba" loading="lazy">
+                            </div>
+                            <div class="product-info">
+                                <span class="brand">Innovapharm</span>
+                                <h3>Black Mamba Hyperrush</h3>
+                                <p class="product-description">Экстремальный жиросжигатель с мощным стимулирующим эффектом</p>
+                                <div class="product-details">
+                                    <span class="weight">90 капсул</span>
+                                    <span class="flavor">-</span>
+                                </div>
+                                <div class="product-footer">
+                                    <span class="price">2 799 ₽</span>
+                                    <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Alpha Lion -->
+                        <div class="product-card" data-brand="alphalion" data-category="fatburner">
+                            <div class="product-img">
+                                <img src="https://m.media-amazon.com/images/I/61nEfDeHgLL._AC_SL1500_.jpg" alt="Alpha Lion Superhuman Burn" loading="lazy">
+                            </div>
+                            <div class="product-info">
+                                <span class="brand">Alpha Lion</span>
+                                <h3>Superhuman Burn</h3>
+                                <p class="product-description">Жиросжигатель на основе натуральных экстрактов</p>
+                                <div class="product-details">
+                                    <span class="weight">90 капсул</span>
+                                    <span class="flavor">-</span>
+                                </div>
+                                <div class="product-footer">
+                                    <span class="price">3 199 ₽</span>
+                                    <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Redcon1 -->
+                        <div class="product-card" data-brand="redcon1" data-category="fatburner">
+                            <div class="product-img">
+                                <img src="https://m.media-amazon.com/images/I/719EFC-fKVL._AC_SL1500_.jpg" alt="Redcon1 BIG NOISE" loading="lazy">
+                            </div>
+                            <div class="product-info">
+                                <span class="brand">Redcon1</span>
+                                <h3>BIG NOISE Thermogenic</h3>
+                                <p class="product-description">Термогенный жиросжигатель с повышенным содержанием кофеина</p>
+                                <div class="product-details">
+                                    <span class="weight">120 капсул</span>
+                                    <span class="flavor">-</span>
+                                </div>
+                                <div class="product-footer">
+                                    <span class="price">2 899 ₽</span>
+                                    <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал сайта -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>SportFuel</h3>
+                    <p>Мы предоставляем лучшее спортивное питание для достижения ваших спортивных целей.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <ul class="contact-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>г. Москва, ул. Спортивная, д. 15</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+7 (999) 123-45-67</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@sportfuel.ru</span>
+                        </li>
+                        <li>
+                            <i class="fab fa-telegram"></i>
+                            <span>@sportfuel_support</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Часы работы</h4>
+                    <ul class="hours-list">
+                        <li><span>Пн-Пт:</span> 9:00 - 21:00</li>
+                        <li><span>Сб-Вс:</span> 10:00 - 20:00</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Быстрые ссылки</h4>
+                    <ul class="quick-links">
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="catalog.html">Каталог</a></li>
+                        <li><a href="#">О нас</a></li>
+                        <li><a href="#">Доставка</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 SportFuel. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

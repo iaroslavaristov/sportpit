@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SportFuel - Спортивное питание</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-dumbbell"></i>
+                <span>SportFuel</span>
+            </div>
+            
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="#" class="nav-link active"><i class="fas fa-home"></i> Главная</a></li>
+                    <li><a href="profile.html" class="nav-link"><i class="fas fa-user"></i> Профиль</a></li>
+                    <li><a href="catalog.html" class="nav-link"><i class="fas fa-store"></i> Каталог</a></li>
+                    <li><a href="wishlist.html" class="nav-link"><i class="fas fa-heart"></i> Вишлист</a></li>
+                </ul>
+            </nav>
+            
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Главный баннер -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Энергия для ваших достижений</h1>
+                <p>Высококачественное спортивное питание для профессионалов и любителей</p>
+                <a href="#" class="btn">Перейти в каталог</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Категории товаров -->
+    <section class="categories">
+        <div class="container">
+            <h2>Категории</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3>Протеин</h3>
+                    <p>Белковые смеси для роста мышц</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Энергетики</h3>
+                    <p>Повышение выносливости и энергии</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-capsules"></i>
+                    </div>
+                    <h3>Витамины</h3>
+                    <p>Комплексы для здоровья и восстановления</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-weight-hanging"></i>
+                    </div>
+                    <h3>Жиросжигатели</h3>
+                    <p>Эффективное снижение веса</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Популярные товары -->
+    <section class="popular-products">
+        <div class="container">
+            <h2>Популярные товары</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-img" style="background-color: #f0f0f0;">
+                        <i class="fas fa-jar"></i>
+                    </div>
+                    <h3>Whey Protein 100%</h3>
+                    <p class="product-description">Сывороточный протеин премиум-класса</p>
+                    <div class="product-footer">
+                        <span class="price">3 499 ₽</span>
+                        <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img" style="background-color: #e6f7ff;">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Pre-Workout MAX</h3>
+                    <p class="product-description">Энергетик для интенсивных тренировок</p>
+                    <div class="product-footer">
+                        <span class="price">2 199 ₽</span>
+                        <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img" style="background-color: #fff0f0;">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3>Fat Burner Pro</h3>
+                    <p class="product-description">Эффективный жиросжигатель</p>
+                    <div class="product-footer">
+                        <span class="price">2 899 ₽</span>
+                        <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img" style="background-color: #f0fff0;">
+                        <i class="fas fa-apple-alt"></i>
+                    </div>
+                    <h3>Multi-Vitamin</h3>
+                    <p class="product-description">Комплекс витаминов и минералов</p>
+                    <div class="product-footer">
+                        <span class="price">1 599 ₽</span>
+                        <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал сайта -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>SportFuel</h3>
+                    <p>Мы предоставляем лучшее спортивное питание для достижения ваших спортивных целей.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <ul class="contact-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>г. Москва, ул. Спортивная, д. 15</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+7 (999) 123-45-67</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@sportfuel.ru</span>
+                        </li>
+                        <li>
+                            <i class="fab fa-telegram"></i>
+                            <span>@sportfuel_support</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Часы работы</h4>
+                    <ul class="hours-list">
+                        <li><span>Пн-Пт:</span> 9:00 - 21:00</li>
+                        <li><span>Сб-Вс:</span> 10:00 - 20:00</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Быстрые ссылки</h4>
+                    <ul class="quick-links">
+                        <li><a href="#">Главная</a></li>
+                        <li><a href="#">Каталог</a></li>
+                        <li><a href="#">О нас</a></li>
+                        <li><a href="#">Доставка</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 SportFuel. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
