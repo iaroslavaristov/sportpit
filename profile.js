@@ -1,11 +1,41 @@
 // ============================================
-// НАСТРОЙКИ SUPABASE
+// ЗАГРУЗКА КОНФИГУРАЦИИ ИЗ .env
 // ============================================
 
-const SUPABASE_URL = 'https://xhrsphorialopjzbrzks.supabase.co';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhocnNwaG9yaWFsb3BqemJyemtzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU5NzA1MjksImV4cCI6MjA4MTU0NjUyOX0.850HIvFKRcJwjN8g4-59YMrEMoAcovs0jsSEZROEi0g';
+let supabase = null;
 
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+async function loadEnv() {
+    try {
+        const response = await fetch('.env');
+        if (!response.ok) {
+            throw new Error('Не удалось загрузить .env файл');
+        }
+        const text = await response.text();
+        const env = {};
+        
+        text.split('\n').forEach(line => {
+            // Убираем комментарии и лишние пробелы
+            const cleanLine = line.split('#')[0].trim();
+            if (!cleanLine) return;
+            
+            const [key, ...valueParts] = cleanLine.split('=');
+            if (key && valueParts.length > 0) {
+                let value = valueParts.join('=').trim();
+                // Убираем кавычки, если они есть
+                if ((value.startsWith("'") && value.endsWith("'")) || 
+                    (value.startsWith('"') && value.endsWith('"'))) {
+                    value = value.slice(1, -1);
+                }
+                env[key.trim()] = value;
+            }
+        });
+        
+        return env;
+    } catch (error) {
+        console.error('Ошибка при загрузке .env:', error);
+        return null;
+    }
+}
 
 // ============================================
 // ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ
@@ -163,20 +193,26 @@ function updateUI(user) {
     
     if (user) {
         currentUser = user;
-        profileCard.style.display = 'block';
-        authStatus.style.display = 'none';
+        if (profileCard) profileCard.style.display = 'block';
+        if (authStatus) authStatus.style.display = 'none';
         
-        document.getElementById('profile-name').textContent = `${user.user_metadata.first_name || ''} ${user.user_metadata.last_name || ''}`;
-        document.getElementById('profile-email').textContent = user.email;
-        
-        document.getElementById('first-name').value = user.user_metadata.first_name || '';
-        document.getElementById('last-name').value = user.user_metadata.last_name || '';
-        document.getElementById('email').value = user.email;
-        document.getElementById('phone').value = user.user_metadata.phone || '';
+        const profileName = document.getElementById('profile-name');
+        const profileEmail = document.getElementById('profile-email');
+        const firstNameInput = document.getElementById('first-name');
+        const lastNameInput = document.getElementById('last-name');
+        const emailInput = document.getElementById('email');
+        const phoneInput = document.getElementById('phone');
+
+        if (profileName) profileName.textContent = `${user.user_metadata.first_name || ''} ${user.user_metadata.last_name || ''}`;
+        if (profileEmail) profileEmail.textContent = user.email;
+        if (firstNameInput) firstNameInput.value = user.user_metadata.first_name || '';
+        if (lastNameInput) lastNameInput.value = user.user_metadata.last_name || '';
+        if (emailInput) emailInput.value = user.email;
+        if (phoneInput) phoneInput.value = user.user_metadata.phone || '';
     } else {
         currentUser = null;
-        profileCard.style.display = 'none';
-        authStatus.style.display = 'block';
+        if (profileCard) profileCard.style.display = 'none';
+        if (authStatus) authStatus.style.display = 'block';
     }
 }
 
@@ -184,36 +220,43 @@ function updateUI(user) {
 // ИНИЦИАЛИЗАЦИЯ
 // ============================================
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Мобильное меню
+document.addEventListener('DOMContentLoaded', async () => {
+    // 1. Сначала загружаем ключи из .env
+    const env = await loadEnv();
+    
+    if (!env || !env.SUPABASE_URL || !env.SUPABASE_ANON_KEY) {
+        console.error('Критическая ошибка: ключи Supabase не найдены в .env');
+        showNotification('Ошибка конфигурации. Проверьте .env файл.', 'error');
+        return;
+    }
+
+    // 2. Инициализируем Supabase
+    supabase = window.supabase.createClient(env.SUPABASE_URL, env.SUPABASE_ANON_KEY);
+
+    // 3. Настраиваем слушатели и интерфейс
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mainNav = document.getElementById('main-nav');
     if (mobileMenuBtn && mainNav) {
         mobileMenuBtn.addEventListener('click', () => mainNav.classList.toggle('active'));
     }
 
-    // Слушатели модалок
     document.getElementById('login-btn')?.addEventListener('click', () => openModal('login-modal'));
     document.getElementById('register-btn')?.addEventListener('click', () => openModal('register-modal'));
     document.getElementById('close-login')?.addEventListener('click', () => closeModal('login-modal'));
     document.getElementById('close-register')?.addEventListener('click', () => closeModal('register-modal'));
     
-    // Формы
     document.getElementById('login-form')?.addEventListener('submit', handleLogin);
     document.getElementById('register-form')?.addEventListener('submit', handleRegister);
     document.getElementById('profile-form')?.addEventListener('submit', handleSaveProfile);
-    
-    // Выход
     document.getElementById('logout-btn')?.addEventListener('click', handleLogout);
 
-    // Закрытие по клику на оверлей
     document.querySelectorAll('.modal-overlay').forEach(overlay => {
         overlay.addEventListener('click', (e) => {
             if (e.target === overlay) closeModal(overlay.id);
         });
     });
 
-    // Слушатель состояния авторизации (автоматически обновляет UI)
+    // Слушатель состояния авторизации
     supabase.auth.onAuthStateChange((event, session) => {
         updateUI(session?.user || null);
     });
